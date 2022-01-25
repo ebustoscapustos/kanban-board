@@ -35,18 +35,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
   .card {
-    color: #fff;
+    color: #797b7e;
     padding: 10px;
-    background-color: blue;
-    width: 200px;
-    margin-bottom: 5px;
+    background-color: #1a1a1b;
+    margin: 10px;
   }
   .delete-btn {
-    background-color: coral;
-    padding: 0 5px;
-    border-radius: 5px;
+    width: 100%;
+    background-color: #1a1a1b;
+    padding: 5px;
   }
-
+.delete-btn:hover {
+  background-color: #555454;
+}
 </style>

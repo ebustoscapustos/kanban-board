@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .new-card {
     background-color: cadetblue;
 }

@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .registr-field {
   margin: auto;
   margin-top: 30px;

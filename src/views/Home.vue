@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Главная</h1>
+  <div class="main-wrapper">
     <div class="kanban-field">
       <app-column
         v-for="(column, index) of allCards"
@@ -25,8 +24,8 @@ export default {
     draggable,
   },
   computed: mapGetters(["allCards"]),
-  mounted() {
-    this.getCards()
+  async mounted() {
+      await this.getCards()
     },
   methods: {
     ...mapActions(['getCards']),
@@ -34,8 +33,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+.main-wrapper {
+  height: 100%;
+  background-color: #373b40;
+}
 .kanban-field {
   display: flex;
+  justify-content: space-around;
 }
 </style>

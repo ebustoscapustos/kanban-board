@@ -1,6 +1,6 @@
 <template>
   <div class="header-wrapper">
-      <v-app-bar color="green" height="50px">
+      <v-app-bar class="header-bar" height="50px">
           <v-tabs align-with-title>
           <v-tab 
           @click="goToLink(link)"
@@ -46,3 +46,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.header-bar {
+  color: #000;
+}
+
+</style>

@@ -18,7 +18,11 @@ export default {
     mutations: {
         createCard: (state, newCard) => {
              const type = state.columnsMap[newCard.row]
-             state.cards[type].push(newCard)
+             if (state.cards[type].some(item => item.id === newCard.id)) {
+                 return
+             } else {
+                state.cards[type].push(newCard)
+             }
         },
         deleteCard: (state, deleteCardData) => {
             state.cards[deleteCardData.type] = state.cards[deleteCardData.type].filter(card => card.id !== deleteCardData.id)
