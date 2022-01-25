@@ -6,7 +6,12 @@
     <v-text-field v-model="user.email" label="Укажите E-mail" required>
     </v-text-field>
 
-    <v-text-field type='password' v-model="user.password" label="Придумайте пароль" required>
+    <v-text-field
+      type="password"
+      v-model="user.password"
+      label="Придумайте пароль"
+      required
+    >
     </v-text-field>
 
     <p>{{ errors }}</p>
@@ -17,7 +22,7 @@
 </template>
 
 <script>
-import httpClient from '@/api/httpClient'
+import httpClient from "@/api/httpClient";
 export default {
   name: "RegistrForm",
 
@@ -28,7 +33,7 @@ export default {
         email: "",
         password: "",
       },
-      errors: ''
+      errors: "",
     };
   },
   computed: {
@@ -42,21 +47,21 @@ export default {
   },
   methods: {
     async registrUser() {
-      
-     try {
-       const res = await httpClient.post('/users/create/', {
-        username: this.user.name,
-        email: this.user.email,
-        password: this.user.password
-      })
-       localStorage.setItem('token', res.data.token)
-       this.$router.push('/')
-       }
-     catch(e) {
-       throw e
-     }
-    }
+      try {
+        const res = await httpClient.post("/users/create/", {
+          username: this.user.name,
+          email: this.user.email,
+          password: this.user.password,
+        });
+        localStorage.setItem("token", res.data.token);
+        this.$router.push("/");
+      } catch (e) {
+        throw e;
+      }
+    },
+   
   },
+ 
 
   components: {},
 };

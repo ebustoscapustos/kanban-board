@@ -7,10 +7,20 @@
     >
     </v-text-field>
 
-    <v-text-field v-model="user.password" label="Введите пароль" required>
+    <v-text-field 
+    v-model="user.password" 
+    label="Введите пароль" 
+    required
+    type="password"
+    >
     </v-text-field>
 
-    <v-btn color="warning" :disabled="valid" @click="authUser"> Войти </v-btn>
+    <v-btn 
+    color="warning" 
+    :disabled="valid"
+    @click="authUser"
+    > 
+    Войти </v-btn>
   </v-form>
 </template>
 
@@ -34,7 +44,6 @@ export default {
   },
   methods: {
     async authUser() {
-      console.log("click");
       try {
         const res = await httpClient.post("/users/login/", {
           username: this.user.username,
@@ -46,16 +55,13 @@ export default {
         throw e;
       }
     },
-    test() {
-      console.log("test");
-    },
   },
 
   components: {},
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .auth-field {
   margin: auto;
   margin-top: 30px;

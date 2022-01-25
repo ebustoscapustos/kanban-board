@@ -1,71 +1,41 @@
 <template>
-<div>
-  <h1>Главная</h1>
   <div>
-      <h2>On-Hold</h2>
+    <h1>Главная</h1>
+    <div class="kanban-field">
       <app-column
-      :column='onHold'
-      />
-      <h2>In-Process</h2>
-      <app-column
-      :column='inProgress'
-      />
-      <h2>Needs-Review</h2>
-      <app-column
-      :column='needsReveiw'
-      />
-      <h2>Approved</h2>
-      <app-column
-      :column='approved'
-      />
+        v-for="(column, index) of allCards"
+        :key="index"
+        :column="column"
+        :type="index"
+        />
+
+    </div>
   </div>
-</div>
 </template>
 
 <script>
-import AppColumn from '../components/AppColumn.vue'
-import draggable from 'vuedraggable'
-  export default {
-    name: 'Home',
-    
-    data() {
-      return {
-        onHold: [
-          {
-            title: 'One',
-            text: '1',
-          },
-          {
-            title: 'Two',
-            text: '2',
-          },
-          {
-            title: 'Three',
-            text: '3',
-          }
-        ],
-        inProgress: [
-          {
-            title: 'One1',
-            text: '12',
-          },
-          {
-            title: 'Two2',
-            text: '23',
-          },
-          {
-            title: 'Three3',
-            text: '43',
-          }
-        ],
-        needsReveiw: [],
-        approved: []
-      }
-    },
+import { mapGetters, mapActions } from "vuex";
+import AppColumn from "../components/AppColumn.vue";
+import draggable from "vuedraggable";
+export default {
+  name: "Home",
 
-    components: {
-        AppColumn, draggable
-    
+  components: {
+    AppColumn,
+    draggable,
+  },
+  computed: mapGetters(["allCards"]),
+  mounted() {
+    this.getCards()
     },
+  methods: {
+    ...mapActions(['getCards']),
   }
+};
 </script>
+
+<style scoped>
+.kanban-field {
+  display: flex;
+}
+</style>
