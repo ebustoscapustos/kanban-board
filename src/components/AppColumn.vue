@@ -93,6 +93,7 @@ export default {
   padding-right: 0px;
   padding-left: 0px;
   margin-left: 10px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   background-color: #2b2c2f;
@@ -125,8 +126,21 @@ textarea {
   outline: none;
 }
 .type-column {
+  color: #fff;
   text-transform: uppercase;
   text-align: center;
   padding: 10px 0;
+}
+.hold {
+background-color: #fa7940;
+}
+.progress {
+background-color: #2f96c3;
+}
+.reveiw {
+background-color: #f4ce46;
+}
+.approved {
+background-color: #00b961;
 }
 </style>
